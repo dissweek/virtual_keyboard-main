@@ -1,0 +1,193 @@
+@import "null";
+@import "active";
+@import "adaptive";
+
+.header {
+    padding: 25px;
+
+    &__title {
+        font-size: 2.6rem;
+        color: rgba(46, 48, 48, 0.63);
+    }
+}
+
+.keyboard {
+    padding: 50px 25px;
+    background-color: rgb(237, 241, 250);
+    border-radius: 20px;
+
+
+    &__input-container {
+        margin: 0 0 34px;
+    }
+
+    &__input {
+        background-color: rgb(237 241 250);
+        width: calc(100% - 50px);
+        min-height: 28px;
+        max-height: 150px;
+        resize: vertical;
+        margin: 0;
+        padding: 10px 25px;
+
+        border: none;
+        border-radius: 12px;
+        box-shadow: inset 2px 3px 10px rgb(212, 212, 212), inset -4px -5px 7px rgb(255, 255, 255);
+
+        font-weight: 400;
+        font-size: 1.5rem;
+        color: rgba(0, 0, 0, 0.596);
+
+    }
+
+    &__input::placeholder{
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        color:  rgba(122, 122, 122, 0.384);
+
+    }
+}
+
+.keyboard {
+
+    &__container {
+        background-color: rgb(234, 239, 243);
+        padding: 15px 20px;
+        border-radius: 15px;
+        border: 2px solid rgb(240, 244, 247);
+        box-shadow: 12px 15px 10px rgb(223, 222, 222),-2px -2px 10px rgb(223, 222, 222);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1.6fr;
+        grid-template-rows: auto;  
+        gap : 0.75rem;
+    }
+
+    &__simbol {
+        height: 3.75rem;
+        border-radius: 7px;
+    }
+
+    &__simbol-key {
+        width: 100%;
+        height: 100%;
+        border: none;
+        padding: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+        border-radius: 7px;
+        
+        color: rgba(46, 48, 48, 0.63);
+        background-color: rgb(237, 241, 245);
+        box-shadow: 2px 3px 10px rgb(204, 204, 204),-4px -5px 7px rgb(255, 255, 255);
+
+
+    }
+    
+    &__special-container{
+        display: grid; 
+        grid-template-columns: 1fr 1fr;   
+    }
+
+    &__special{
+        background-image: url(/more/img/texture.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 7px;
+        position: relative;
+        
+    }
+    
+
+    &__special-key {
+        background-color: rgba(237, 241, 245, 0.5);
+    }
+
+    &__special-key-left {
+        border-radius: 7px 0 0 7px;
+    }
+
+    &__special-key-right {
+        border-radius: 0px 7px 7px 0px;
+        box-shadow: 2px 3px 10px rgb(204, 204, 204),0px -5px 7px rgb(255, 255, 255);
+    }
+
+    &__simbol-subtext {
+        font-size: 1.2rem;
+    }
+
+    &__simbol-text {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    &__special-text {
+        font-size: 1.2rem;
+    }
+
+    &__space{
+        padding: 0.6rem;
+    }
+
+}
+
+.keyboard {
+
+    &__second-row {
+        grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1.3fr;
+    } 
+
+    &__third-row{
+        grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 2fr;
+    }
+
+    &__fourth-row{
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    &__fifth-row{
+        grid-template-columns: 1fr 1fr 1fr 6.9fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+
+.toggle {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    left: 3px;
+    top: 3px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.171);
+    overflow: hidden;
+    width: 8px;
+
+    
+    &__on, &__off {
+        min-width: 8px;
+        min-height: 8px;
+
+    }
+
+    &__on {
+        background-color: #9afcbb93;
+        position: relative;
+        
+        &.active{
+            left: -8px;
+        }
+    }
+
+    &__off {
+        background-color: #ff959593;
+    }
+}

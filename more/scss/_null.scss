@@ -1,0 +1,35 @@
+* {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    text-decoration: none;   
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    padding: 25px 0 0 ;
+    background-color: rgb(237, 241, 250);
+    font-size: 16px;
+}
+
+.wrapper {
+    max-width: 1140px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 25px;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    html, body {
+        font-size: 12px;
+    }
+}
+@media (max-width: 576px) {
+    html, body {
+        font-size: 8px;
+    }
+}
