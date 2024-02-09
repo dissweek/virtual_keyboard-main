@@ -1,6 +1,14 @@
-@import "null";
+@import "base";
 @import "active";
 @import "adaptive";
+
+
+:root {
+    --keyboard-bg-color: #ebeffa; // значение по умолчанию
+    --input-bg-color: rgb(237 241 250); // значение по умолчанию
+    --input-shadow: inset 2px 3px 10px rgb(212, 212, 212), inset -4px -5px 7px rgb(255, 255, 255);
+    --input-text-color:  rgba(0, 0, 0, 0.596);
+}
 
 .header {
     padding: 25px;
@@ -13,7 +21,7 @@
 
 .keyboard {
     padding: 50px 25px;
-    background-color: rgb(237, 241, 250);
+    background-color: var(--keyboard-bg-color);
     border-radius: 20px;
 
 
@@ -22,7 +30,7 @@
     }
 
     &__input {
-        background-color: rgb(237 241 250);
+        background-color:var(--input-bg-color);
         width: calc(100% - 50px);
         min-height: 28px;
         max-height: 150px;
@@ -32,11 +40,11 @@
 
         border: none;
         border-radius: 12px;
-        box-shadow: inset 2px 3px 10px rgb(212, 212, 212), inset -4px -5px 7px rgb(255, 255, 255);
+        box-shadow: var(--input-shadow);
 
         font-weight: 400;
         font-size: 1.5rem;
-        color: rgba(0, 0, 0, 0.596);
+        color: var(--input-text-color);
 
     }
 
@@ -191,3 +199,163 @@
         background-color: #ff959593;
     }
 }
+
+.menu,.menu__language,.menu__color {
+    height: 100vh;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu {
+    width: 50px;
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+
+    &__container {
+    }
+
+    // &__burger{
+    //     margin-top: 40px;
+    //     max-width: 25px;
+    //     width: 100%;
+    //     max-height: 20px;
+    //     height: 100%;
+    //     margin-bottom: 100px;
+
+    //     &:hover{
+    //         .menu__burger_icon{
+    //             background-color: red;
+    //         }
+    //     }
+
+    //     &_icon{
+    //         background-color: white;
+    //         min-width: 25px;
+    //         min-height: 3px;
+    //         position: relative;
+    //         top: 8px;
+
+            
+    //         &:hover{
+    //             background-color: red;
+    //         }
+
+    //         &::after,&::before{
+    //             background-color: inherit;
+    //             content: '';
+    //             min-width: 25px;
+    //             min-height: 3px;
+
+    //         }
+
+    //         &::after{
+    //             position: absolute;
+    //             top: -8px;
+    //         }
+    //         &::before{
+    //             position: absolute;
+    //             top: 8px;
+    //         }
+    //     }
+    // }
+
+    &__language{
+        position: absolute;
+        z-index: 19;
+        top: 0;
+        left: -500px;
+        width: 215px;
+        background-color: rgb(22, 22, 22);
+        padding: 0 20px 0 70px ;
+        transition: all 0.3s;
+
+        &.active{
+            left: 0;
+        }
+        
+        &_container{
+            margin: 40px 0px 50px;
+        }
+
+        &_icon{
+            cursor: pointer;
+        }
+
+        &_favorite{
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+
+            &-container{
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                align-items: start;
+                border-bottom: 2px white solid;
+            }
+            
+            &-title{
+                margin: 20px 0;
+                color: white;
+                font-size: 22px;
+            }
+
+            &-list{
+                margin-bottom: 20px;
+                color: rgba(255, 255, 255, 0.568);
+            }
+        }
+
+
+        &_available {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: start;
+
+            &-title {
+                margin: 20px 0 ;
+                color: white;
+                font-size: 18px;
+            }
+    
+            &-lang {
+                margin-bottom: 25px;
+                padding: 0 0 5px 0;
+                max-width: 215px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                color: rgba(255, 255, 255, 0.774);
+                font-size: 16px;
+                border-bottom: 1px solid rgb(148, 148, 148);
+
+
+                & span,i{
+                    cursor: pointer;
+
+                    &:hover{
+                        color: red;
+                    }
+                }
+            }
+
+            &-favorite{
+                color: rgb(255, 255, 114);
+            }
+        }
+
+    }
+    
+    &__color{
+
+        &_container{
+        }
+    }
+}
+
+

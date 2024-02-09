@@ -2,8 +2,14 @@
 const KEYBOARD_CONTAINER = document.querySelector(".keyboard__container");
 const INPUT = document.querySelector("textarea");
 const BODY =  document.querySelector('body');
+const MENU_LANGUAGE = document.querySelector('.menu__language')
+const MENU_LANGUAGE_BTN = document.querySelector('.menu__language_icon')
+const MENU_LANGUAGE_LIST = document.querySelector('.menu__language_available')
+const MENU_LANGUAGE_FAVORITE = document.querySelector('.menu__language_favorite')
+
 let holdOrClick,cursorPos = null
 let checkHoldClick = false
+const toggleButton = (coder) => `<div class="toggle"><div class="toggle__off"></div><div class="toggle__on" id=${'key_'+coder}></div></div>`
 let chechToggleButton = {
     "code20":false,
     "code17":false,
@@ -11,23 +17,23 @@ let chechToggleButton = {
     "code9":false,
 }
 
-const toggleButton = (coder) => `<div class="toggle"><div class="toggle__off"></div><div class="toggle__on" id=${'key_'+coder}></div></div>`
+let favorite = localStorage.favorite ? JSON.parse(localStorage.favorite) : []
+let language = allLanguage.en
 
-INPUT.addEventListener('click',()=>{
-    cursorPos = INPUT.selectionStart
-    console.log(cursorPos)
-})
-
-BODY.addEventListener('keyup',()=>{
-    cursorPos = INPUT.selectionStart
-    console.log(cursorPos)
-})
-
-language = language.en
-
+function renderFavorite (){
+    MENU_LANGUAGE_FAVORITE.innerHTML = ''
+    favorite.forEach(i=>{
+        favorite ?   (
+            MENU_LANGUAGE_FAVORITE.innerHTML +=  `<div class="menu__language_available-lang" data-langCode="${i}"> <span>${allLanguage[i].name}</span> <i data-langCode="${i}" class=" ${favorite.includes(i) && 'menu__language_available-favorite'} fa-solid fa-star"></i></div>`
+        ) : '<p class="menu__language_favorite-list"> No favorite language...</p>'
+    })
+}
 
 function renderSymbol (){
     let  allKey = document.querySelectorAll('[data-keyCode]')
+    allKey.forEach(i=>{
+        i.children[0].innerHTML = ''
+    })
     allKey.forEach(i=>{
         let coder = i.getAttribute('data-keyCode')
         language[coder].forEach((symbol,index)=>{
@@ -129,6 +135,53 @@ function printSecondSymbol(pressedKey){
     }   
 }
 
+function changeLanguageAndFavorite (event) {
+    if (event.target.closest('.menu__language_available-lang')  &&  !event.target.closest('i')){
+        let newLanguage = event.target.closest('.menu__language_available-lang').getAttribute('data-langCode')
+        console.log(newLanguage )
+        language = allLanguage[newLanguage]
+        renderSymbol()
+    } else {
+        let eventCode = event.target.closest('.menu__language_available-lang').getAttribute('data-langCode')
+        if (favorite.includes(eventCode)){
+            favorite = favorite.filter(i => i != eventCode)
+            event.target.classList.remove('menu__language_available-favorite')
+            renderFavorite()
+        } else{
+            favorite.unshift(eventCode)
+            event.target.classList.add('menu__language_available-favorite')
+            renderFavorite()
+        }
+        localStorage.favorite = JSON.stringify(favorite)
+        console.log(localStorage.favorite)
+        console.log(favorite)
+    }
+}
+
+INPUT.addEventListener('click',()=>{
+    cursorPos = INPUT.selectionStart
+})
+
+BODY.addEventListener('keyup',()=>{
+    cursorPos = INPUT.selectionStart
+})
+
+BODY.addEventListener('click',(event)=>{
+    (!event.target.closest('.menu') && !event.target.closest('.menu__language'))  && MENU_LANGUAGE.classList.remove('active')
+
+})
+
 KEYBOARD_CONTAINER.addEventListener("mousedown", eventMousedown);
 KEYBOARD_CONTAINER.addEventListener("mouseup", eventMouseup);
+MENU_LANGUAGE_BTN.addEventListener('click',()=>{
+    MENU_LANGUAGE.classList.toggle('active')
+})
+
+MENU_LANGUAGE_LIST.addEventListener('click',changeLanguageAndFavorite)
+
+for (let lang in allLanguage) {
+    console.log(allLanguage[lang])
+    MENU_LANGUAGE_LIST.innerHTML += `<div class="menu__language_available-lang" data-langCode="${lang}"> <span>${allLanguage[lang].name}</span> <i data-langCode="${lang}" class=" ${favorite.includes(lang) && 'menu__language_available-favorite'} fa-solid fa-star"></i></div>`
+}
+renderFavorite()
 renderSymbol()

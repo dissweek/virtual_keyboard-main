@@ -33,3 +33,14 @@ textarea:focus{
         font-size: 8px;
     }
 }
+
+.fa{
+    font-size: 25px;
+    min-width: 25px;
+    min-height: 25px;
+    color: #ebeffa;
+
+    &:hover{
+        color: red;
+    }
+}

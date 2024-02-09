@@ -1,384 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <title>Document</title>
 </head>
+
 <body class="body">
     <header class="header wrapper">
         <h1 class="header__title">Virtual keyboard</h1>
     </header>
     <main class="keyboard wrapper">
-        <div class="keyboard__input-container">
-            <textarea name="input" id="input" cols="30" rows="1" placeholder="Type text" class="keyboard__input"></textarea>
-        </div>
-        <div class="keyboard__container">
-            <div class="keyboard__row">
-                <div class="keyboard__simbol" data-keyCode='code192'>
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-subtext">`</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">~</span> -->
-                        <!-- <span class="keyboard__simbol-text"> </span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode='code49'>
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">1</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">!</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code50">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">2</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">@</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code51">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">3</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">#</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code52">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">4</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">$</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code53">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">5</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">%</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code54">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">6</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">^</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code55">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">7</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">&</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code56">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">8</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">*</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code57">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">9</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">(</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code48">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">0</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">)</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code189">
-                    <button class="keyboard__simbol-key"  >
-                        <!-- <span class="keyboard__simbol-text">-</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">=</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code187">
-                    <button class="keyboard__simbol-key"  >
-                        <!-- <span class="keyboard__simbol-text">=</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">+</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__special-container keyboard__special">
-                    <div class="keyboard__special" data-keyCode="code8">
-                        <button class="keyboard__special-key keyboard__special-key-left keyboard__simbol-key">
-                            <!-- <span class="keyboard__simbol-text keyboard__special-text">Back</span> -->
-                        </button>
+            <div class="menu__container">
+                <div class="menu">
+                    <div class="menu__language_container">
+                        <div class="menu__language_icon"><i class="fa fa-solid fa-globe" ></i></div>
                     </div>
-                    <div class="keyboard__special" data-keyCode="code46">
-                        <button class="keyboard__special-key keyboard__special-key-right keyboard__simbol-key">
-                            <!-- <span class="keyboard__simbol-text keyboard__special-text">Del</span> -->
-                        </button>
+                    
+                    <div class="menu__color_container">
+                        <div class="menu__color_icon"><i class="fa fa-solid fa-palette" ></i></div>
+                    </div>
+                </div>
+                <div class="menu__language">
+                    <div class="menu__language_favorite-container">
+                        <h3 class="menu__language_favorite-title">Favorite:</h3>
+                        <div class="menu__language_favorite"></div>
+                        <!-- <p class="menu__language_favorite-list"> No favorite language...</p> -->
+                    </div>
+                    <div class="menu__language_available">
+                        <h3 class="menu__language_available-title">Available languages:</h3>
+                        <!-- <div class="menu__language_available-lang" data-langCode="en"> <span>English</span> <i data-langCode="en" class="fa-solid fa-star"></i></div>
+                        <div class="menu__language_available-lang" data-langCode="rus"> <span>Русский</span> <i data-langCode="rus" class="fa-solid fa-star"></i></div> -->
                     </div>
                 </div>
             </div>
-            <div class="keyboard__second-row keyboard__row">
-                <div class="keyboard__special" data-keyCode="code9">
-                    <button class="keyboard__special-key keyboard__simbol-key">
-                        <!-- <span class="keyboard__simbol-text keyboard__special-text">Tab</span> -->
-                    </button>
+            <input type="color" class="test" name="" id="">
+            <div class="keyboard__input-container">
+                <textarea name="input" id="input" cols="30" rows="1" placeholder="Type text"
+                    class="keyboard__input"></textarea>
+            </div>
+            <div class="keyboard__container">
+                <div class="keyboard__row">
+                    <div class="keyboard__simbol" data-keyCode='code192'>
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode='code49'>
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code50">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code51">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code52">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code53">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code54">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code55">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code56">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code57">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code48">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code189">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code187">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__special-container keyboard__special">
+                        <div class="keyboard__special" data-keyCode="code8">
+                            <button class="keyboard__special-key keyboard__special-key-left keyboard__simbol-key">
+                            </button>
+                        </div>
+                        <div class="keyboard__special" data-keyCode="code46">
+                            <button class="keyboard__special-key keyboard__special-key-right keyboard__simbol-key">
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="keyboard__simbol" data-keyCode="code81">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">Q</span> -->
-                    </button>
+                <div class="keyboard__second-row keyboard__row">
+                    <div class="keyboard__special" data-keyCode="code9">
+                        <button class="keyboard__special-key keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code81">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code87">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code69">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code82">
+                        <button class="keyboard__simbol-key keyboard__en">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code84">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code89">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code85">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code73">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code79">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code80">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code219">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code221">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code220">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
                 </div>
-                <div class="keyboard__simbol" data-keyCode="code87">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">W</span> -->
-                    </button>
+                <div class="keyboard__third-row keyboard__row">
+                    <div class="keyboard__special" data-keyCode="code20">
+                        <button class="keyboard__special-key keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code65">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code83">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code68">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code70">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code71">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code72">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code74">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code75">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code76">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code186">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code222">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__special" data-keyCode="code13">
+                        <button class="keyboard__special-key keyboard__simbol-key">
+                        </button>
+                    </div>
                 </div>
-                <div class="keyboard__simbol" data-keyCode="code69">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">E</span> -->
-                    </button>
+                <div class="keyboard__fourth-row  keyboard__row">
+                    <div class="keyboard__special" data-keyCode="code16">
+                        <button class="keyboard__special-key keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code90">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code88">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code67">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code86">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code66">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code78">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code77">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code188">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code190">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code191">
+                        <button class="keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__special" data-keyCode="code38">
+                        <button class="keyboard__special-key keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__special" data-keyCode="code16">
+                        <button class="keyboard__special-key keyboard__simbol-key">
+                        </button>
+                    </div>
                 </div>
-                <div class="keyboard__simbol" data-keyCode="code82">
-                    <button class="keyboard__simbol-key keyboard__en">
-                        <!-- <span class="keyboard__simbol-text">R</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code84">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">T</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code89">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">Y</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code85">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">U</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code73">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">I</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code79">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">O</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code80">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">P</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code219">
-                    <button class="keyboard__simbol-key"  >
-                        <!-- <span class="keyboard__simbol-text">[</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">{</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code221">
-                    <button class="keyboard__simbol-key"  >
-                        <!-- <span class="keyboard__simbol-text">]</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">}</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code220">
-                    <button class="keyboard__simbol-key"  >
-                        <!-- <span class="keyboard__simbol-subtext">\</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">|</span> -->
-                        <!-- <span class="keyboard__simbol-text">/</span> -->
-                    </button>
+                <div class="keyboard__fifth-row  keyboard__row">
+                    <div class="keyboard__special" data-keyCode="code17">
+                        <button class="keyboard__special-key keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__special" data-keyCode="code91">
+                        <button class="keyboard__special-key keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__special" data-keyCode="code18">
+                        <button class="keyboard__special-key keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__simbol" data-keyCode="code32">
+                        <button class="keyboard__simbol-key keyboard__space">
+                        </button>
+                    </div>
+                    <div class="keyboard__special" data-keyCode="code18">
+                        <button class="keyboard__special-key keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__special" data-keyCode="code17">
+                        <button class="keyboard__special-key keyboard__simbol-key">
+                        </button>
+                    </div>
+    
+                    <div class="keyboard__special" data-keyCode="code37">
+                        <button class="keyboard__special-key keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__special" data-keyCode="code40">
+                        <button class="keyboard__special-key keyboard__simbol-key">
+                        </button>
+                    </div>
+                    <div class="keyboard__special" data-keyCode="code39">
+                        <button class="keyboard__special-key keyboard__simbol-key">
+                        </button>
+                    </div>
+    
                 </div>
             </div>
-            <div class="keyboard__third-row keyboard__row">
-                <div class="keyboard__special" data-keyCode="code20">
-                    <button class="keyboard__special-key keyboard__simbol-key">
-                        <!-- <span class="keyboard__simbol-text keyboard__special-text">CapsLK</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code65">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">A</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code83">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">S</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code68">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">D</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code70">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">F</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code71">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">G</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code72">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">H</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code74">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">J</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code75">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">K</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code76">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">L</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code186">
-                    <button class="keyboard__simbol-key"  >
-                        <!-- <span class="keyboard__simbol-text">;</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">:</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code222">
-                    <button class="keyboard__simbol-key"  >
-                        <!-- <span class="keyboard__simbol-text">'</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">"</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__special" data-keyCode="code13">
-                    <button class="keyboard__special-key keyboard__simbol-key">
-                        <!-- <span class="keyboard__simbol-text keyboard__special-text">Enter</span> -->
-                    </button>
-                </div>
-            </div>
-            <div class="keyboard__fourth-row  keyboard__row">
-                <div class="keyboard__special" data-keyCode="code16">
-                    <button class="keyboard__special-key keyboard__simbol-key">
-                        <!-- <span class="keyboard__simbol-text keyboard__special-text">Shift</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code90">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">Z</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code88">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">X</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code67">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">C</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code86">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">V</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code66">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">B</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code78">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">N</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code77">
-                    <button class="keyboard__simbol-key" >
-                        <!-- <span class="keyboard__simbol-text">M</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code188">
-                    <button class="keyboard__simbol-key"  >
-                        <!-- <span class="keyboard__simbol-text">,</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">&lt;</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code190">
-                    <button class="keyboard__simbol-key"  >
-                        <!-- <span class="keyboard__simbol-text">.</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">></span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code191">
-                    <button class="keyboard__simbol-key"  >
-                        <!-- <span class="keyboard__simbol-text">/</span> -->
-                        <!-- <span class="keyboard__simbol-subtext">?</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__special" data-keyCode="code38">
-                    <button class="keyboard__special-key keyboard__simbol-key">
-                        <!-- <span class="keyboard__simbol-text keyboard__special-text">&#9650;</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__special" data-keyCode="code16">
-                    <button class="keyboard__special-key keyboard__simbol-key">
-                        <!-- <span class="keyboard__simbol-text keyboard__special-text">Shift</span> -->
-                    </button>
-                </div>
-            </div>
-            <div class="keyboard__fifth-row  keyboard__row">
-                <div class="keyboard__special" data-keyCode="code17">
-                    <button class="keyboard__special-key keyboard__simbol-key">
-                        <!-- <span class="keyboard__simbol-text keyboard__special-text">Ctrl</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__special" data-keyCode="code91">
-                    <button class="keyboard__special-key keyboard__simbol-key">
-                        <!-- <span class="keyboard__simbol-text keyboard__special-text">win</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__special" data-keyCode="code18">
-                    <button class="keyboard__special-key keyboard__simbol-key">
-                        <!-- <span class="keyboard__simbol-text keyboard__special-text">Alt</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__simbol" data-keyCode="code32">
-                    <button class="keyboard__simbol-key keyboard__space" >
-                        <!-- <span class="keyboard__simbol-text keyboard__special-text ">SPACE</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__special" data-keyCode="code18">
-                    <button class="keyboard__special-key keyboard__simbol-key">
-                        <!-- <span class="keyboard__simbol-text keyboard__special-text">Alt</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__special" data-keyCode="code17">
-                    <button class="keyboard__special-key keyboard__simbol-key">
-                        <!-- <span class="keyboard__simbol-text keyboard__special-text">Ctrl</span> -->
-                    </button>
-                </div>
-                
-                <div class="keyboard__special" data-keyCode="code37">
-                    <button class="keyboard__special-key keyboard__simbol-key">
-                        <!-- <span class="keyboard__simbol-text keyboard__special-text">&#9664;</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__special" data-keyCode="code40">
-                    <button class="keyboard__special-key keyboard__simbol-key">
-                        <!-- <span class="keyboard__simbol-text keyboard__special-text">&#9660;</span> -->
-                    </button>
-                </div>
-                <div class="keyboard__special" data-keyCode="code39">
-                    <button class="keyboard__special-key keyboard__simbol-key">
-                        <!-- <span class="keyboard__simbol-text keyboard__special-text">&#9654;</span> -->
-                    </button>
-                </div>
-                
-            </div>
-        </div>
     </main>
 </body>
 <script src="./js/languagePackage.js"></script>
 <script src="./js/main.js"></script>
+
 </html>
