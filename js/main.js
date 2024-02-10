@@ -5,7 +5,10 @@ const BODY =  document.querySelector('body');
 const MENU_LANGUAGE = document.querySelector('.menu__language')
 const MENU_LANGUAGE_BTN = document.querySelector('.menu__language_icon')
 const MENU_LANGUAGE_LIST = document.querySelector('.menu__language_available')
+let MENU_LANGUAGE_FAVORITE_BTN = null
+
 const MENU_LANGUAGE_FAVORITE = document.querySelector('.menu__language_favorite')
+
 
 let holdOrClick,cursorPos = null
 let checkHoldClick = false
@@ -24,7 +27,7 @@ function renderFavorite (){
     MENU_LANGUAGE_FAVORITE.innerHTML = ''
     favorite.forEach(i=>{
         favorite ?   (
-            MENU_LANGUAGE_FAVORITE.innerHTML +=  `<div class="menu__language_available-lang" data-langCode="${i}"> <span>${allLanguage[i].name}</span> <i data-langCode="${i}" class=" ${favorite.includes(i) && 'menu__language_available-favorite'} fa-solid fa-star"></i></div>`
+            MENU_LANGUAGE_FAVORITE.innerHTML +=  `<div class="menu__language_available-lang" data-langCode="${i}"> <span>${allLanguage[i].name}</span> <i data-langCode="${i}" class=" menu__language_favorite_btn ${favorite.includes(i) && 'menu__language_available-favorite'} fa-solid fa-star"></i></div>`
         ) : '<p class="menu__language_favorite-list"> No favorite language...</p>'
     })
 }
@@ -135,27 +138,29 @@ function printSecondSymbol(pressedKey){
     }   
 }
 
-function changeLanguageAndFavorite (event) {
+function changeLanguage (event) {
     if (event.target.closest('.menu__language_available-lang')  &&  !event.target.closest('i')){
         let newLanguage = event.target.closest('.menu__language_available-lang').getAttribute('data-langCode')
         console.log(newLanguage )
         language = allLanguage[newLanguage]
         renderSymbol()
-    } else {
-        let eventCode = event.target.closest('.menu__language_available-lang').getAttribute('data-langCode')
-        if (favorite.includes(eventCode)){
-            favorite = favorite.filter(i => i != eventCode)
-            event.target.classList.remove('menu__language_available-favorite')
-            renderFavorite()
-        } else{
-            favorite.unshift(eventCode)
-            event.target.classList.add('menu__language_available-favorite')
-            renderFavorite()
-        }
-        localStorage.favorite = JSON.stringify(favorite)
-        console.log(localStorage.favorite)
-        console.log(favorite)
     }
+}
+
+function changeFavorite(event) {
+    let eventCode = event.target.closest('.menu__language_favorite_btn').getAttribute('data-langCode')
+    if (favorite.includes(eventCode)){
+        favorite = favorite.filter(i => i != eventCode)
+        event.target.classList.remove('menu__language_available-favorite')
+        renderFavorite()
+    } else{
+        favorite.unshift(eventCode)
+        event.target.classList.add('menu__language_available-favorite')
+        renderFavorite()
+    }
+    localStorage.favorite = JSON.stringify(favorite)
+    renderLanguage()
+
 }
 
 INPUT.addEventListener('click',()=>{
@@ -167,21 +172,28 @@ BODY.addEventListener('keyup',()=>{
 })
 
 BODY.addEventListener('click',(event)=>{
-    (!event.target.closest('.menu') && !event.target.closest('.menu__language'))  && MENU_LANGUAGE.classList.remove('active')
+    (!event.target.closest('.menu') && !event.target.closest('.menu__language') && !event.target.closest('.menu__language_favorite_btn'))  && MENU_LANGUAGE.classList.remove('active')
 
 })
 
 KEYBOARD_CONTAINER.addEventListener("mousedown", eventMousedown);
 KEYBOARD_CONTAINER.addEventListener("mouseup", eventMouseup);
-MENU_LANGUAGE_BTN.addEventListener('click',()=>{
-    MENU_LANGUAGE.classList.toggle('active')
-})
+MENU_LANGUAGE_BTN.addEventListener('click',()=>{ MENU_LANGUAGE.classList.toggle('active')})
 
-MENU_LANGUAGE_LIST.addEventListener('click',changeLanguageAndFavorite)
+MENU_LANGUAGE_LIST.addEventListener('click',changeLanguage)
 
-for (let lang in allLanguage) {
-    console.log(allLanguage[lang])
-    MENU_LANGUAGE_LIST.innerHTML += `<div class="menu__language_available-lang" data-langCode="${lang}"> <span>${allLanguage[lang].name}</span> <i data-langCode="${lang}" class=" ${favorite.includes(lang) && 'menu__language_available-favorite'} fa-solid fa-star"></i></div>`
+function renderLanguage(){
+    MENU_LANGUAGE_LIST.innerHTML = ''
+    for (let lang in allLanguage) {
+        MENU_LANGUAGE_LIST.innerHTML += `<div class="menu__language_available-lang" data-langCode="${lang}"> <span>${allLanguage[lang].name}</span> <i data-langCode="${lang}" class="menu__language_favorite_btn ${favorite.includes(lang) && 'menu__language_available-favorite'} fa-solid fa-star"></i></div>`
+    } 
+
+    MENU_LANGUAGE_FAVORITE_BTN = document.querySelectorAll('.menu__language_favorite_btn')
+    MENU_LANGUAGE_FAVORITE_BTN.forEach(btn=>{
+        btn.addEventListener('click',changeFavorite)
+    })
 }
+
 renderFavorite()
+renderLanguage()
 renderSymbol()
