@@ -5,8 +5,10 @@ const BODY =  document.querySelector('body');
 const MENU_LANGUAGE = document.querySelector('.menu__language')
 const MENU_LANGUAGE_BTN = document.querySelector('.menu__language_icon')
 const MENU_LANGUAGE_LIST = document.querySelector('.menu__language_available')
-const MENU_LANGUAGE_FAVORITE = document.querySelector('.menu__language_favorite')
 let MENU_LANGUAGE_FAVORITE_BTN = null
+
+const MENU_LANGUAGE_FAVORITE = document.querySelector('.menu__language_favorite')
+
 let holdOrClick,cursorPos = null
 let checkHoldClick = false
 const toggleButton = (coder) => `<div class="toggle"><div class="toggle__off"></div><div class="toggle__on" id=${'key_'+coder}></div></div>`
