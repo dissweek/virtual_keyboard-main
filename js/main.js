@@ -3,8 +3,11 @@ const KEYBOARD_CONTAINER = document.querySelector(".keyboard__container");
 const INPUT = document.querySelector("textarea");
 const BODY =  document.querySelector('body');
 const MENU_LANGUAGE = document.querySelector('.menu__language')
+const MENU_COLOR = document.querySelector('.menu__color')
+const MENU_COLOR_BTN = document.querySelector('.menu__color_icon')
 const MENU_LANGUAGE_BTN = document.querySelector('.menu__language_icon')
 const MENU_LANGUAGE_LIST = document.querySelector('.menu__language_available')
+const MENU_COLOR_THEME = document.querySelector('.menu__color_theme-container')
 let MENU_LANGUAGE_FAVORITE_BTN = null
 
 const MENU_LANGUAGE_FAVORITE = document.querySelector('.menu__language_favorite')
@@ -70,11 +73,38 @@ function renderSymbol (){
     })
 }
 
+function renderLanguage(){
+    MENU_LANGUAGE_LIST.innerHTML = ''
+    for (let lang in allLanguage) {
+        MENU_LANGUAGE_LIST.innerHTML += `<div class="menu__language_available-lang" data-langCode="${lang}"> <span>${allLanguage[lang].name}</span> <i data-langCode="${lang}" class="menu__language_favorite_btn ${favorite.includes(lang) && 'menu__language_available-favorite'} fa-solid fa-star"></i></div>`
+    } 
+    
+    MENU_LANGUAGE_FAVORITE_BTN = document.querySelectorAll('.menu__language_favorite_btn')
+    MENU_LANGUAGE_FAVORITE_BTN.forEach(btn=>{
+        btn.addEventListener('click',changeFavorite)
+    })
+    
+    const MENU_LANGUAGE_LANG = document.querySelectorAll('.menu__language_available-lang')
+    MENU_LANGUAGE_LANG.forEach(lang=>{
+        lang.children[0].addEventListener('click',changeLanguage)
+    })
+}
+
+function renderTheme(){
+    themePackage.forEach(theme=>{
+        MENU_COLOR_THEME.innerHTML +=   `<div data-themeName='${theme.name}' class="menu__color_theme" style="background-color:${theme["--keyboard-bg-color"]};"></div>`
+    })
+
+    MENU_COLOR_THEME.addEventListener('click',changeTheme) //color.js
+
+}
+
+
+
 function eventMousedown(event) {
     checkHoldClick = false
     let pressedKey = event.target.closest(".keyboard__simbol-key") 
     holdOrClick = setTimeout(()=>printSecondSymbol(pressedKey),1000)
-
 }
 
 function eventMouseup(event) {        
@@ -167,36 +197,27 @@ function getCursorPos () {
     cursorPos = INPUT.selectionStart
 }
 
-function renderLanguage(){
-    MENU_LANGUAGE_LIST.innerHTML = ''
-    for (let lang in allLanguage) {
-        MENU_LANGUAGE_LIST.innerHTML += `<div class="menu__language_available-lang" data-langCode="${lang}"> <span>${allLanguage[lang].name}</span> <i data-langCode="${lang}" class="menu__language_favorite_btn ${favorite.includes(lang) && 'menu__language_available-favorite'} fa-solid fa-star"></i></div>`
-    } 
-    
-    MENU_LANGUAGE_FAVORITE_BTN = document.querySelectorAll('.menu__language_favorite_btn')
-    MENU_LANGUAGE_FAVORITE_BTN.forEach(btn=>{
-        btn.addEventListener('click',changeFavorite)
-    })
-    
-    const MENU_LANGUAGE_LANG = document.querySelectorAll('.menu__language_available-lang')
-    MENU_LANGUAGE_LANG.forEach(lang=>{
-        lang.children[0].addEventListener('click',changeLanguage)
-    })
-}
+
 
 INPUT.addEventListener('click',getCursorPos)
 
 BODY.addEventListener('keyup',getCursorPos)
 
 BODY.addEventListener('click',(event)=>{
-    (!event.target.closest('.menu') && !event.target.closest('.menu__language') && !event.target.closest('.menu__language_favorite_btn'))  && MENU_LANGUAGE.classList.remove('active')
+    (!event.target.closest('.menu') && !event.target.closest('.menu__language') && !event.target.closest('.menu__color') && !event.target.closest('.menu__language_favorite_btn'))  && ( MENU_LANGUAGE.classList.remove('active'), MENU_COLOR.classList.remove('active'))
+}) //???????????????????????????????????????????????????????????????????????????????????????????????????????????
 
-})
+function showMenu(a,b){
+    b.classList.remove('active')
+    a.classList.toggle('active')
+}
 
 KEYBOARD_CONTAINER.addEventListener("mousedown", eventMousedown);
 KEYBOARD_CONTAINER.addEventListener("mouseup", eventMouseup);
-MENU_LANGUAGE_BTN.addEventListener('click',()=>{ MENU_LANGUAGE.classList.toggle('active')})
+MENU_LANGUAGE_BTN.addEventListener('click',()=>showMenu(MENU_LANGUAGE,MENU_COLOR))
+MENU_COLOR_BTN.addEventListener('click',()=>showMenu(MENU_COLOR,MENU_LANGUAGE))
 
 renderFavorite()
 renderLanguage()
 renderSymbol()
+renderTheme()

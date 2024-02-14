@@ -31,22 +31,27 @@
                     <div class="menu__language_favorite-container">
                         <h3 class="menu__language_favorite-title">Favorite:</h3>
                         <div class="menu__language_favorite"></div>
-                        <!-- <p class="menu__language_favorite-list"> No favorite language...</p> -->
                     </div>
                     <div class="menu__language_available-container">
                         <h3 class="menu__language_available-title">Available languages:</h3>
                         <div class="menu__language_available">
-
                         </div>
-                        <!-- <div class="menu__language_available-lang" data-langCode="en"> <span>English</span> <i data-langCode="en" class="fa-solid fa-star"></i></div>
-                        <div class="menu__language_available-lang" data-langCode="rus"> <span>Русский</span> <i data-langCode="rus" class="fa-solid fa-star"></i></div> -->
                     </div>
                 </div>
                 <div class="menu__color">
+                    <h3 class="menu__color_title menu__language_favorite-title">Theme</h3>
+                    <!-- <p class="menu__color_alert">
+                        ATTENTION!!! This function is experimental and may not be supported by your browser!
+                    </p> -->
+                    <div class="menu__color_input-container">
+                        <label class="menu__color_label" for="cl-LED">Color LED</label>
+                        <input class="menu__color_input-LED menu__color_input" type="color" value="#ce4141" name="colorLED" id="cl-LED">
+                    </div>
+                    <div class="menu__color_theme-container">
+                    </div>
 
                 </div>
             </div>
-            <input type="color" class="test" name="" id="">
             <div class="keyboard__input-container">
                 <textarea name="input" id="input" cols="30" rows="1" placeholder="Type text"
                     class="keyboard__input"></textarea>
@@ -110,7 +115,7 @@
                             <button class="keyboard__special-key keyboard__special-key-left keyboard__simbol-key">
                             </button>
                         </div>
-                        <div class="keyboard__special" data-keyCode="code46">
+                        <div  class="keyboard__special" data-keyCode="code46">
                             <button class="keyboard__special-key keyboard__special-key-right keyboard__simbol-key">
                             </button>
                         </div>
@@ -326,6 +331,7 @@
     </main>
 </body>
 <script src="./js/languagePackage.js"></script>
+<script src="./js/themePackage.js"></script>
 <script src="./js/main.js"></script>
 
 </html>

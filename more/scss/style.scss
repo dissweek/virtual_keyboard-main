@@ -3,25 +3,18 @@
 @import "adaptive";
 
 
-:root {
-    --keyboard-bg-color: #ebeffa; // значение по умолчанию
-    --input-bg-color: rgb(237 241 250); // значение по умолчанию
-    --input-shadow: inset 2px 3px 10px rgb(212, 212, 212), inset -4px -5px 7px rgb(255, 255, 255);
-    --input-text-color:  rgba(0, 0, 0, 0.596);
-}
-
 .header {
     padding: 25px;
 
     &__title {
         font-size: 2.6rem;
-        color: rgba(46, 48, 48, 0.63);
+        color: var(--header-title);
     }
 }
 
 .keyboard {
     padding: 50px 25px;
-    background-color: var(--keyboard-bg-color);
+    background-color: var(--keyboard-bg-wrapper);
     border-radius: 20px;
 
 
@@ -52,7 +45,7 @@
         font-family: Arial, Helvetica, sans-serif;
         font-style: normal;
         font-weight: 300;
-        color:  rgba(122, 122, 122, 0.384);
+        color:  var(--input-placeholder-color);
 
     }
 }
@@ -60,11 +53,11 @@
 .keyboard {
 
     &__container {
-        background-color: rgb(234, 239, 243);
+        background-color: var(--keyboard-bg-color);
         padding: 15px 20px;
         border-radius: 15px;
-        border: 2px solid rgb(240, 244, 247);
-        box-shadow: 12px 15px 10px rgb(223, 222, 222),-2px -2px 10px rgb(223, 222, 222);
+        border:var(--keyboard-border);
+        box-shadow: var(--keyboard-shadow);
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
@@ -93,9 +86,9 @@
         gap: 10%;
         border-radius: 7px;
         
-        color: rgba(46, 48, 48, 0.63);
-        background-color: rgb(237, 241, 245);
-        box-shadow: 2px 3px 10px rgb(204, 204, 204),-4px -5px 7px rgb(255, 255, 255);
+        color: var(--keyboard-text-color);
+        background-color: var(--keyboard-symbol-color);
+        box-shadow:  var(--keyboard-symbol-shadow);
 
 
     }
@@ -117,7 +110,7 @@
     
 
     &__special-key {
-        background-color: rgba(237, 241, 245, 0.5);
+        background-color: var(--keyboard-special-color);
     }
 
     &__special-key-left {
@@ -126,7 +119,7 @@
 
     &__special-key-right {
         border-radius: 0px 7px 7px 0px;
-        box-shadow: 2px 3px 10px rgb(204, 204, 204),0px -5px 7px rgb(255, 255, 255);
+        box-shadow: var(--keyboard-symbol-shadow);
     }
 
     &__simbol-subtext {
@@ -201,7 +194,7 @@
 }
 
 .menu,.menu__language,.menu__color {
-    height: 100vh;
+    height: 100%;
     background: #000;
     display: flex;
     flex-direction: column;
@@ -210,61 +203,13 @@
 
 .menu {
     width: 50px;
-    position: absolute;
+    position: fixed;
     z-index: 20;
     top: 0;
     left: 0;
 
-    &__container {
-    }
-
-    // &__burger{
-    //     margin-top: 40px;
-    //     max-width: 25px;
-    //     width: 100%;
-    //     max-height: 20px;
-    //     height: 100%;
-    //     margin-bottom: 100px;
-
-    //     &:hover{
-    //         .menu__burger_icon{
-    //             background-color: red;
-    //         }
-    //     }
-
-    //     &_icon{
-    //         background-color: white;
-    //         min-width: 25px;
-    //         min-height: 3px;
-    //         position: relative;
-    //         top: 8px;
-
-            
-    //         &:hover{
-    //             background-color: red;
-    //         }
-
-    //         &::after,&::before{
-    //             background-color: inherit;
-    //             content: '';
-    //             min-width: 25px;
-    //             min-height: 3px;
-
-    //         }
-
-    //         &::after{
-    //             position: absolute;
-    //             top: -8px;
-    //         }
-    //         &::before{
-    //             position: absolute;
-    //             top: 8px;
-    //         }
-    //     }
-    // }
-
-    &__language{
-        position: absolute;
+    &__language, &__color{
+        position: fixed;
         z-index: 19;
         top: 0;
         left: -500px;
@@ -279,6 +224,7 @@
         
         &_container{
             margin: 40px 0px 50px;
+            
         }
 
         &_icon{
@@ -347,7 +293,7 @@
                     cursor: pointer;
 
                     &:hover{
-                        color: red;
+                        color: rgb(255 62 62)
                     }
                 }
             }
@@ -360,8 +306,58 @@
     }
     
     &__color{
+        align-items: start;
+
+
+        &.active{
+            left: 0;
+        }
+
+        &_alert{
+            border: 2px solid rgb(255, 63, 63);
+            padding: 5px;
+            color: #f97070de;
+            margin: 0 0 20px;
+        }
 
         &_container{
+        }
+
+        &_input{
+            background-color: inherit ;
+            border: none;
+            width: 75px;
+            height: 20px;
+            border-radius: 50%;
+
+            &-container{
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            
+        }
+
+        &_label{
+            color: white;
+            font-size: 16px;
+        }
+
+        &_theme{
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            margin: 5px 5px;
+            border: 1px solid #ffffff;
+            background-color: #ca4b4b;
+
+            &-container{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: start;
+            }
         }
     }
 }

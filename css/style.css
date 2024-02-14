@@ -6,9 +6,41 @@
   margin: 0;
 }
 
+:root {
+  --header-title: rgba(46, 48, 48, 0.63);
+  --keyboard-bg-wrapper: #ebeffa;
+  --keyboard-bg-color: #ebeffa;
+  --keyboard-text-color: rgba(46, 48, 48, 0.63);
+  --input-bg-color: rgb(237 241 250);
+  --input-shadow: inset 2px 3px 10px rgb(212, 212, 212), inset -4px -5px 7px rgb(255, 255, 255);
+  --input-text-color: rgba(0, 0, 0, 0.596);
+  --input-placeholder-color: rgba(122, 122, 122, 0.384);
+  --keyboard-led: #ce4141;
+  --keyboard-bg-container: rgb(11, 110, 190);
+  --keyboard-shadow: 12px 15px 10px rgb(223, 222, 222),-2px -2px 10px rgb(223, 222, 222);
+  --keyboard-border: 2px solid rgb(240, 244, 247);
+  --keyboard-symbol-color: rgb(237, 241, 245);
+  --keyboard-symbol-shadow: 2px 3px 10px rgb(204, 204, 204),-4px -5px 7px rgb(255, 255, 255);
+  --keyboard-special-color: rgba(237, 241, 245, 0.5);
+  --keyboard-symbol-hover:rgb(218, 221, 224);
+  --keyboard-symbol-active:rgba(177, 187, 206, 0.315);
+  --keyboard-special-hover:rgba(217, 221, 225, 0.08);
+}
+
+input[type=color i]::-webkit-color-swatch {
+  border: none;
+  border-radius: 25px;
+}
+
+input[type=color i]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 25px;
+}
+
 html, body {
   padding: 25px 0 0;
-  background-color: rgb(237, 241, 250);
+  background: var(--keyboard-bg-wrapper);
   font-size: 16px;
 }
 
@@ -40,34 +72,27 @@ textarea:focus {
   color: #ebeffa;
 }
 .fa:hover {
-  color: red;
+  color: rgb(255, 62, 62);
 }
 
 .keyboard__simbol-key:hover {
-  background-color: rgb(218, 221, 224);
+  background-color: var(--keyboard-symbol-hover);
   transform: translateY(-2px);
-  box-shadow: 0px 0px 20px rgba(206, 65, 65, 0.493);
+  box-shadow: 0px 0px 20px var(--keyboard-led);
+  color: var(--keyboard-led);
   cursor: pointer;
 }
 .keyboard__special-key:hover {
-  background-color: rgba(217, 221, 225, 0.08);
+  background-color: var(--keyboard-special-hover);
   cursor: pointer;
 }
 .keyboard__simbol-key:active {
   transform: translateY(2px);
-  background-color: rgba(177, 187, 206, 0.315);
-  color: rgba(206, 65, 65, 0.425);
-  box-shadow: 0px 0px 10px rgba(206, 65, 65, 0.493);
+  background-color: var(--keyboard-symbol-active);
+  box-shadow: 0px 0px 10px var(--keyboard-led);
 }
 .keyboard__special-key:active {
   background-color: rgba(201, 213, 228, 0.726);
-}
-
-:root {
-  --keyboard-bg-color: #ebeffa;
-  --input-bg-color: rgb(237 241 250);
-  --input-shadow: inset 2px 3px 10px rgb(212, 212, 212), inset -4px -5px 7px rgb(255, 255, 255);
-  --input-text-color: rgba(0, 0, 0, 0.596);
 }
 
 .header {
@@ -75,12 +100,12 @@ textarea:focus {
 }
 .header__title {
   font-size: 2.6rem;
-  color: rgba(46, 48, 48, 0.63);
+  color: var(--header-title);
 }
 
 .keyboard {
   padding: 50px 25px;
-  background-color: var(--keyboard-bg-color);
+  background-color: var(--keyboard-bg-wrapper);
   border-radius: 20px;
 }
 .keyboard__input-container {
@@ -105,21 +130,21 @@ textarea:focus {
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 300;
-  color: rgba(122, 122, 122, 0.384);
+  color: var(--input-placeholder-color);
 }
 .keyboard__input::placeholder {
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 300;
-  color: rgba(122, 122, 122, 0.384);
+  color: var(--input-placeholder-color);
 }
 
 .keyboard__container {
-  background-color: rgb(234, 239, 243);
+  background-color: var(--keyboard-bg-color);
   padding: 15px 20px;
   border-radius: 15px;
-  border: 2px solid rgb(240, 244, 247);
-  box-shadow: 12px 15px 10px rgb(223, 222, 222), -2px -2px 10px rgb(223, 222, 222);
+  border: var(--keyboard-border);
+  box-shadow: var(--keyboard-shadow);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -144,9 +169,9 @@ textarea:focus {
   align-items: center;
   gap: 10%;
   border-radius: 7px;
-  color: rgba(46, 48, 48, 0.63);
-  background-color: rgb(237, 241, 245);
-  box-shadow: 2px 3px 10px rgb(204, 204, 204), -4px -5px 7px rgb(255, 255, 255);
+  color: var(--keyboard-text-color);
+  background-color: var(--keyboard-symbol-color);
+  box-shadow: var(--keyboard-symbol-shadow);
 }
 .keyboard__special-container {
   display: grid;
@@ -161,14 +186,14 @@ textarea:focus {
   position: relative;
 }
 .keyboard__special-key {
-  background-color: rgba(237, 241, 245, 0.5);
+  background-color: var(--keyboard-special-color);
 }
 .keyboard__special-key-left {
   border-radius: 7px 0 0 7px;
 }
 .keyboard__special-key-right {
   border-radius: 0px 7px 7px 0px;
-  box-shadow: 2px 3px 10px rgb(204, 204, 204), 0px -5px 7px rgb(255, 255, 255);
+  box-shadow: var(--keyboard-symbol-shadow);
 }
 .keyboard__simbol-subtext {
   font-size: 1.2rem;
@@ -224,7 +249,7 @@ textarea:focus {
 }
 
 .menu, .menu__language, .menu__color {
-  height: 100vh;
+  height: 100%;
   background: #000;
   display: flex;
   flex-direction: column;
@@ -233,13 +258,13 @@ textarea:focus {
 
 .menu {
   width: 50px;
-  position: absolute;
+  position: fixed;
   z-index: 20;
   top: 0;
   left: 0;
 }
-.menu__language {
-  position: absolute;
+.menu__language, .menu__color {
+  position: fixed;
   z-index: 19;
   top: 0;
   left: -500px;
@@ -248,54 +273,54 @@ textarea:focus {
   padding: 0 20px 0 70px;
   transition: all 0.3s;
 }
-.menu__language.active {
+.menu__language.active, .menu__color.active {
   left: 0;
 }
-.menu__language_container {
+.menu__language_container, .menu__color_container {
   margin: 40px 0px 50px;
 }
-.menu__language_icon {
+.menu__language_icon, .menu__color_icon {
   cursor: pointer;
 }
-.menu__language_favorite {
+.menu__language_favorite, .menu__color_favorite {
   display: flex;
   width: 100%;
   flex-direction: column;
 }
-.menu__language_favorite-container {
+.menu__language_favorite-container, .menu__color_favorite-container {
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: start;
   border-bottom: 2px white solid;
 }
-.menu__language_favorite-title {
+.menu__language_favorite-title, .menu__color_favorite-title {
   margin: 20px 0;
   color: white;
   font-size: 22px;
 }
-.menu__language_favorite-list {
+.menu__language_favorite-list, .menu__color_favorite-list {
   margin-bottom: 20px;
   color: rgba(255, 255, 255, 0.568);
 }
-.menu__language_available {
+.menu__language_available, .menu__color_available {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: start;
 }
-.menu__language_available-container {
+.menu__language_available-container, .menu__color_available-container {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: start;
 }
-.menu__language_available-title {
+.menu__language_available-title, .menu__color_available-title {
   margin: 20px 0;
   color: white;
   font-size: 18px;
 }
-.menu__language_available-lang {
+.menu__language_available-lang, .menu__color_available-lang {
   margin-bottom: 25px;
   padding: 0 0 5px 0;
   max-width: 215px;
@@ -306,12 +331,55 @@ textarea:focus {
   font-size: 16px;
   border-bottom: 1px solid rgb(148, 148, 148);
 }
-.menu__language_available-lang span, .menu__language_available-lang i {
+.menu__language_available-lang span, .menu__language_available-lang i, .menu__color_available-lang span, .menu__color_available-lang i {
   cursor: pointer;
 }
-.menu__language_available-lang span:hover, .menu__language_available-lang i:hover {
-  color: red;
+.menu__language_available-lang span:hover, .menu__language_available-lang i:hover, .menu__color_available-lang span:hover, .menu__color_available-lang i:hover {
+  color: rgb(255, 62, 62);
 }
-.menu__language_available-favorite {
+.menu__language_available-favorite, .menu__color_available-favorite {
   color: rgb(255, 255, 114);
+}
+.menu__color {
+  align-items: start;
+}
+.menu__color.active {
+  left: 0;
+}
+.menu__color_alert {
+  border: 2px solid rgb(255, 63, 63);
+  padding: 5px;
+  color: rgba(249, 112, 112, 0.8705882353);
+  margin: 0 0 20px;
+}
+.menu__color_input {
+  background-color: inherit;
+  border: none;
+  width: 75px;
+  height: 20px;
+  border-radius: 50%;
+}
+.menu__color_input-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.menu__color_label {
+  color: white;
+  font-size: 16px;
+}
+.menu__color_theme {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  margin: 5px 5px;
+  border: 1px solid #ffffff;
+  background-color: #ca4b4b;
+}
+.menu__color_theme-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
 }/*# sourceMappingURL=style.css.map */

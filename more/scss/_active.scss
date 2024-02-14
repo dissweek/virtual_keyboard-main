@@ -1,20 +1,20 @@
 .keyboard{
 
     &__simbol-key:hover{
-        background-color:rgb(218, 221, 224);
+        background-color:var(--keyboard-symbol-hover);
         transform: translateY(-2px);
-        box-shadow:  0px 0px 20px rgba(206, 65, 65, 0.493);
+        box-shadow:  0px 0px 20px var(--keyboard-led);
+        color: var(--keyboard-led);
         cursor: pointer;
     }
     &__special-key:hover{
-        background-color:rgba(217, 221, 225, 0.08);
+        background-color:var(--keyboard-special-hover) ;
         cursor: pointer;
     }
     &__simbol-key:active{
         transform: translateY(2px);
-        background-color:rgba(177, 187, 206, 0.315);
-        color: rgba(206, 65, 65, 0.425);
-        box-shadow:  0px 0px 10px rgba(206, 65, 65, 0.493);
+        background-color:var(--keyboard-symbol-active);
+        box-shadow:  0px 0px 10px var(--keyboard-led);
 
 
     }
