@@ -3,11 +3,13 @@ const KEYBOARD_CONTAINER = document.querySelector(".keyboard__container");
 const INPUT = document.querySelector("textarea");
 const BODY =  document.querySelector('body');
 const MENU_LANGUAGE = document.querySelector('.menu__language')
+const MENU_LANGUAGE_SHORTNAME = document.querySelector('.menu__language_shortName')
 const MENU_COLOR = document.querySelector('.menu__color')
 const MENU_COLOR_BTN = document.querySelector('.menu__color_icon')
 const MENU_LANGUAGE_BTN = document.querySelector('.menu__language_icon')
 const MENU_LANGUAGE_LIST = document.querySelector('.menu__language_available')
 const MENU_COLOR_THEME = document.querySelector('.menu__color_theme-container')
+
 let MENU_LANGUAGE_FAVORITE_BTN = null
 
 const MENU_LANGUAGE_FAVORITE = document.querySelector('.menu__language_favorite')
@@ -22,7 +24,11 @@ let chechToggleButton = {
     "code9":false,
 }
 let favorite = localStorage.favorite ? JSON.parse(localStorage.favorite) : []
-let language = allLanguage.en
+let language = allLanguage.eng
+
+function showShortName(){
+    MENU_LANGUAGE_SHORTNAME.innerHTML = language.shortName
+}
 
 function renderFavorite (){
     MENU_LANGUAGE_FAVORITE.innerHTML = ''
@@ -174,6 +180,7 @@ function changeLanguage (event) {
         console.log(newLanguage )
         language = allLanguage[newLanguage]
         renderSymbol()
+        showShortName()
     }
 }
 
@@ -219,5 +226,6 @@ MENU_COLOR_BTN.addEventListener('click',()=>showMenu(MENU_COLOR,MENU_LANGUAGE))
 
 renderFavorite()
 renderLanguage()
+showShortName()
 renderSymbol()
 renderTheme()

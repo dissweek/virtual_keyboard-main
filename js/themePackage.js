@@ -40,6 +40,27 @@ const themePackage =[
         '--keyboard-symbol-hover':'#fa7383',
         '--keyboard-symbol-active':'#bb7880ab',
         '--keyboard-special-hover':'#75757577',
+    },
+    {
+        name:'BLUE',
+        '--header-title': 'rgba(212, 224, 224, 0.7)',
+        '--keyboard-bg-wrapper': 'hsl(244, 54%, 69%)',
+        '--keyboard-bg-color': 'hsl(244, 74%, 59%)',
+        '--keyboard-text-color': 'rgba(255, 255, 255, 0.692)',
+        '--input-bg-color': 'hsl(244, 74%, 59%)',
+        '--input-shadow': 'inset 2px 3px 10px hsl(244, 58%, 40%), inset -4px -5px 7px hsl(244, 100%, 71%)',
+        '--input-text-color': 'rgba(241, 241, 241, 0.795)',
+        '--input-placeholder-color': 'rgba(255, 255, 255, 0.432)',
+        '--keyboard-led': '#FF0095',
+        '--keyboard-bg-container': 'rgb(11, 110, 190)',
+        '--keyboard-shadow': '12px 15px 10px hsl(244, 56%, 40%), -2px -2px 10px hsl(244, 56%, 40%)',
+        '--keyboard-border': '2px solid hsl(244, 58%, 45%)',
+        '--keyboard-symbol-color': 'hsl(244, 69%, 58%)',
+        '--keyboard-symbol-shadow': '2px 3px 10px hsl(244, 53%, 33%), -4px -5px 7px hsl(244, 100%, 71%)',
+        '--keyboard-special-color': 'hsla(219, 51%, 61%, 0.671)',
+        '--keyboard-symbol-hover': 'hsl(244, 100%, 83%)',
+        '--keyboard-symbol-active': 'hsla(229, 34%, 63%, 0.671)',
+        '--keyboard-special-hover': '#7575759c',
     }
 ]
 const MENU_COLOR_LED = document.querySelector('#cl-LED')

@@ -223,8 +223,12 @@
         }
         
         &_container{
-            margin: 40px 0px 50px;
-            
+            margin: 40px 0px 10px;
+            text-align: center;        
+        }
+
+        &_shortName{
+            color: white;
         }
 
         &_icon{
@@ -352,6 +356,7 @@
             margin: 5px 5px;
             border: 1px solid #ffffff;
             background-color: #ca4b4b;
+            cursor: pointer;
 
             &-container{
                 display: flex;
