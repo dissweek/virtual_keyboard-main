@@ -11,9 +11,9 @@
   --keyboard-bg-wrapper: #ebeffa;
   --keyboard-bg-color: #ebeffa;
   --keyboard-text-color: rgba(46, 48, 48, 0.63);
-  --input-bg-color: rgb(237 241 250);
+  --input-bg-color: hsl(222, 57%, 95%);
   --input-shadow: inset 2px 3px 10px rgb(212, 212, 212), inset -4px -5px 7px rgb(255, 255, 255);
-  --input-text-color: rgba(0, 0, 0, 0.596);
+  --input-text-color: hsla(0, 0%, 0%, 0.596);
   --input-placeholder-color: rgba(122, 122, 122, 0.384);
   --keyboard-led: #ce4141;
   --keyboard-bg-container: rgb(11, 110, 190);
